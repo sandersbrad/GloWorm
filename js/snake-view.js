@@ -58,7 +58,6 @@
     if (this.game.changeInterval) {
       clearInterval(this.gameInterval);
       this.gameInterval = setInterval(this.run.bind(this), this.game.interval);
-      this.game.changeInterval = false;
     }
   };
 })();

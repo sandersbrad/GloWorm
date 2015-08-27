@@ -37,9 +37,11 @@
       this.segments.unshift(newTail);
       i -= 1;
     }
-    if (this.applesEaten % 2 === 0) {
+    if (this.applesEaten % 3 === 0) {
       this.interval -= 20;
       this.changeInterval = true;
+    } else {
+      this.changeInterval = false;
     }
   };
 
