@@ -11,6 +11,7 @@
     this.applesEaten = 0;
     this.interval = 150;
     this.changeInterval = false;
+    this.score = 0
   };
 
   Snake.DIRECT = ["N","E","S","W"];
@@ -30,6 +31,7 @@
   Snake.prototype.eatApple = function () {
     this.placeApple();
     this.applesEaten += 1;
+    this.score += 10;
     var i = 2;
     var vec = this.vec;
     while (i > 0) {
@@ -37,7 +39,7 @@
       this.segments.unshift(newTail);
       i -= 1;
     }
-    if (this.applesEaten % 3 === 0) {
+    if (this.applesEaten % 3 === 0 && this.interval > 40) {
       this.interval -= 20;
       this.changeInterval = true;
     } else {
@@ -51,19 +53,33 @@
     }
   };
 
+  Snake.prototype.outOfBounds = function () {
+    if (this.head[0] < 0 || this.head[1] < 0 || this.head[0] >= 29 || this.head[1] >= 29) {
+      alert('You Lose');
+      this.endGame = true;
+    }
+  };
+
   Snake.prototype.checkCollision = function () {
+    this.outOfBounds();
     this.segments.slice(0,this.segments.length - 1).forEach(function (segment) {
       if (segment.equals(this.head)) {
-        alert('you lose');
+        alert('You Lose');
+        this.endGame = true;
       }
     }.bind(this));
   };
 
   Snake.prototype.placeApple = function () {
     $('div').removeClass('apple');
-    var x = parseInt(Math.random() * 10);
-    var y = parseInt(Math.random() * 10);
+    var x = parseInt(Math.random() * 30);
+    var y = parseInt(Math.random() * 30);
     var pos = [x, y];
+    this.segments.forEach(function (segment) {
+      if (segment.equals(pos)) {
+        this.placeApple();
+      }
+    }.bind(this));
     this.apple = pos;
 
     $("div[pos = '" + pos + "']").addClass("apple");
@@ -92,24 +108,6 @@
     }
   };
 
-  //Coord Class
-  //
-  // var Coord = Game.Coord = function () {
-  //
-  // };
-  //
-  // Coord.prototype.plus = function() {
-  //
-  // };
-  // Coord.prototype.equals = function() {
-  //
-  // };
-  // Coord.prototype.isOpposite = function() {
-  //
-  // };
-
-  //Board Class
-  //
   var Game = Game.Game = function() {
     new Snake();
   };

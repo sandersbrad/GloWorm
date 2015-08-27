@@ -1,7 +1,7 @@
 
 .board {
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
 }
 
 .group:after {
@@ -17,8 +17,8 @@
   box-sizing: border-box;
   border-left: 1px solid #fff;
   border-top: 1px solid #fff;
-  height: 20px;
-  width: 20px;
+  height: 10px;
+  width: 10px;
 }
 
 .display {
@@ -27,4 +27,22 @@
 
 .apple {
   background-color: #f20000;
+}
+
+.high-score {
+  height: 75px;
+  width: 150px;
+  background-color: #eee;
+  font-size: 197%;
+  font-weight: bold;
+  color: black;
+}
+
+.current-score {
+  height: 75px;
+  width: 150px;
+  background-color: #eee;
+  font-size: 197%;
+  font-weight: bold;
+  color: black;
 }

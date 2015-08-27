@@ -5,19 +5,23 @@
 
   var Game = window.Game;
 
-  Game.View = function (game, $board) {
+  Game.View = function (game, $board, $score, $highScore) {
     this.game = game;
     this.$board = $board;
+    this.$score = $score;
+    this.$highScore = $highScore;
+    this.boardSize = 30;
     this.setBoard();
     this.bindKeyHandlers();
     this.render();
+    $('.restart').click(this.replay.bind(this));
   };
 
   Game.View.prototype.setBoard = function () {
-    console.log("set board called");
     var $board = this.$board;
-     for (var i = 0; i < 20; i++) {
-       for (var j = 0; j < 20; j++) {
+    $board.empty();
+     for (var i = 0; i < this.boardSize; i++) {
+       for (var j = 0; j < this.boardSize; j++) {
          var $square = $('<div>').attr('pos', [i,j]).addClass('empty');
          $board.append($square);
        }
@@ -40,6 +44,15 @@
     });
   };
 
+  Game.View.prototype.replay = function () {
+    this.game = new Game.Snake();
+    this.$board.empty();
+    this.$score.empty();
+    this.setBoard();
+    this.bindKeyHandlers();
+    this.render();
+  };
+
   Game.View.prototype.render = function () {
     this.game.placeApple();
     this.gameInterval = setInterval(this.run.bind(this), this.game.interval);
@@ -51,13 +64,24 @@
       $("div[pos = '" + this.game.segments[i] + "']").addClass("display");
     }
     this.game.move();
+    this.$score.html(this.game.score);
     this.checkInterval();
+    this.checkLoss();
   };
 
   Game.View.prototype.checkInterval = function () {
     if (this.game.changeInterval) {
       clearInterval(this.gameInterval);
       this.gameInterval = setInterval(this.run.bind(this), this.game.interval);
+    }
+  };
+
+  Game.View.prototype.checkLoss = function () {
+    if(this.game.endGame) {
+      clearInterval(this.gameInterval);
+      if (this.game.score > parseInt(this.$highScore.html())) {
+        this.$highScore.html(this.game.score);
+      }
     }
   };
 })();
