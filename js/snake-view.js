@@ -15,6 +15,7 @@
     this.bindKeyHandlers();
     this.render();
     $('.restart').click(this.replay.bind(this));
+    this.setHighScore;
   };
 
   Game.View.prototype.setBoard = function () {
@@ -42,6 +43,13 @@
     key('right', function () {
       game.turn("E");
     });
+  };
+
+  Game.View.prototype.setHighScore = function () {
+    var highScore = Cookies.get('highscore');
+    if (highScore !== undefined){
+      this.$highScore.html(highScore);
+    }
   };
 
   Game.View.prototype.replay = function () {
@@ -81,6 +89,8 @@
       clearInterval(this.gameInterval);
       if (this.game.score > parseInt(this.$highScore.html())) {
         this.$highScore.html(this.game.score);
+        Cookies.set('highscore', this.game.score, { expires: 7 });
+        debugger
       }
     }
   };
