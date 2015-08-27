@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/snake.css">
+  </head>
+  <body>
+    <script src="../js/utils/keymaster.js"></script>
+    <script src="../js/utils/array.js"></script>
+    <script src="../js/snake.js"></script>
+    <script src="../js/snake-view.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script>
+      $(function () {
+        var game = new Game.Snake();
+        var $board = $('.board')
+
+        var view = new Game.View(game, $board)
+      })
+    </script>
+
+    <figure class="board group"></figure>
+
+  </body>
+</html>

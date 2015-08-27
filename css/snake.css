@@ -1,0 +1,30 @@
+
+.board {
+  height: 400px;
+  width: 400px;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.empty {
+  float: left;
+  position: relative;
+  background-color: #eee;
+  box-sizing: border-box;
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  height: 20px;
+  width: 20px;
+}
+
+.display {
+  background-color: #000;
+}
+
+.apple {
+  background-color: #f20000;
+}
