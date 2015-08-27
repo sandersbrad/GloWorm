@@ -10,7 +10,7 @@
     this.$board = $board;
     this.$score = $score;
     this.$highScore = $highScore;
-    this.boardSize = 30;
+    this.boardSize = 40;
     this.setBoard();
     this.bindKeyHandlers();
     this.render();

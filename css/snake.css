@@ -1,7 +1,7 @@
 
 .board {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
 }
 
 .group:after {
@@ -38,7 +38,7 @@
   color: black;
 }
 
-.current-score {
+.score {
   height: 75px;
   width: 150px;
   background-color: #eee;

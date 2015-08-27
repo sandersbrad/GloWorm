@@ -54,7 +54,7 @@
   };
 
   Snake.prototype.outOfBounds = function () {
-    if (this.head[0] < 0 || this.head[1] < 0 || this.head[0] >= 29 || this.head[1] >= 29) {
+    if (this.head[0] < 0 || this.head[1] < 0 || this.head[0] >= 40 || this.head[1] >= 40) {
       alert('You Lose');
       this.endGame = true;
     }
@@ -72,8 +72,8 @@
 
   Snake.prototype.placeApple = function () {
     $('div').removeClass('apple');
-    var x = parseInt(Math.random() * 30);
-    var y = parseInt(Math.random() * 30);
+    var x = parseInt(Math.random() * 39);
+    var y = parseInt(Math.random() * 39);
     var pos = [x, y];
     this.segments.forEach(function (segment) {
       if (segment.equals(pos)) {
