@@ -31,13 +31,19 @@
         var view = new Game.View(game, $board, $score, $highScore)
       })
     </script>
-    <div class='row snake-header'></div>
+    <!-- <div class='row snake-header'></div> -->
     <div class='row game'>
       <div class='col-md-4'></div>
       <div class='col-md-4 game'>
         <figure class="board group"></figure>
       </div>
       <div class='col-md-4 scores'>
+        <figure class="timer">
+          <div class="clock">
+          <span class="minutes"></span>:<span class="seconds"></span>:<span class='milliseconds'></span>
+          </div>
+        </figure>
+        <br>
         <figure class="high-score">
           High Score
           <div class="last-high">0</div>
@@ -51,7 +57,5 @@
         <button class="btn btn-default restart">Restart</button>
       </div>
     </div>
-
-
   </body>
 </html>

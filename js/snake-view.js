@@ -16,6 +16,7 @@
     this.render();
     $('.restart').click(this.replay.bind(this));
     this.setHighScore();
+    this.setTimer();
   };
 
   Game.View.prototype.setBoard = function () {
@@ -27,6 +28,22 @@
          $board.append($square);
        }
      }
+     this.game.placeApple();
+  };
+
+  Game.View.prototype.setTimer = function () {
+    this.milliseconds = 0;
+    this.timerInt = setInterval(this.timer.bind(this), 100);
+  };
+
+  Game.View.prototype.timer = function () {
+    this.milliseconds += 100;
+    var seconds = this.milliseconds/1000;
+    var minutes = seconds/60;
+
+    $('.minutes').html(parseInt(minutes));
+    $('.seconds').html(parseInt(seconds%60));
+    $('.milliseconds').html(this.milliseconds%1000/100);
   };
 
   Game.View.prototype.bindKeyHandlers = function () {
@@ -58,11 +75,11 @@
     this.$score.empty();
     this.setBoard();
     this.bindKeyHandlers();
+    this.setTimer();
     this.render();
   };
 
   Game.View.prototype.render = function () {
-    this.game.placeApple();
     this.gameInterval = setInterval(this.run.bind(this), this.game.interval);
   };
 
@@ -87,6 +104,7 @@
   Game.View.prototype.checkLoss = function () {
     if(this.game.endGame) {
       clearInterval(this.gameInterval);
+      clearInterval(this.timerInt);
       if (this.game.score > parseInt(this.$highScore.html())) {
         this.$highScore.html(this.game.score);
         Cookies.set('highscore', this.game.score, { expires: 7 });

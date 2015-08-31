@@ -11,7 +11,7 @@
     this.applesEaten = 0;
     this.interval = 150;
     this.changeInterval = false;
-    this.score = 0
+    this.score = 0;
   };
 
   Snake.DIRECT = ["N","E","S","W"];
@@ -19,6 +19,7 @@
   Snake.prototype.move = function() {
     this.checkIfAppleEaten();
     this.checkCollision();
+    this.placeBonus();
     var vec = this.vec;
     var segs = this.segments;
     var newHead = [this.head[0] + vec[0], this.head[1] + vec[1]];
@@ -26,6 +27,14 @@
     segs.push(newHead);
     this.head = newHead;
     segs.shift();
+  };
+
+  Snake.prototype.placeBonus = function () {
+    if ((parseInt($('.seconds').html()) % 12 === 0) &&
+        this.applesEaten > 0 &&
+        this.applesEaten % 3 === 0){
+      this.placePowerUp();
+    }
   };
 
   Snake.prototype.eatApple = function () {
@@ -47,9 +56,22 @@
     }
   };
 
+  Snake.prototype.eatPowerUp = function () {
+    $('div').removeClass('power-up');
+    if (this.segments.length > 6) {
+      this.segments = this.segments.splice(this.segments.length/2);
+    }
+
+    this.score += 20;
+  };
+
   Snake.prototype.checkIfAppleEaten = function () {
     if (this.head.equals(this.apple)) {
       this.eatApple();
+    }
+
+    if (this.head.equals(this.powerUp)) {
+      this.eatPowerUp();
     }
   };
 
@@ -75,14 +97,30 @@
     var x = parseInt(Math.random() * 39);
     var y = parseInt(Math.random() * 39);
     var pos = [x, y];
-    this.segments.forEach(function (segment) {
-      if (segment.equals(pos)) {
-        this.placeApple();
-      }
-    }.bind(this));
+    if ($("div[pos = '" + pos + "']").attr('class') !== 'empty') {
+      this.placeApple();
+      return;
+    }
     this.apple = pos;
 
     $("div[pos = '" + pos + "']").addClass("apple");
+  };
+
+  Snake.prototype.placePowerUp = function () {
+    $('div').removeClass('power-up');
+    var x = parseInt(Math.random() * 39);
+    var y = parseInt(Math.random() * 39);
+    var pos = [x, y];
+    if ($("div[pos = '" + pos + "']").attr('class') !== 'empty') {
+      this.placePowerUp();
+      return;
+    }
+    this.powerUp = pos;
+
+    $("div[pos = '" + pos + "']").addClass("power-up");
+    setTimeout(function () {
+      $('div').removeClass('power-up');
+    }, 7000);
   };
 
   Snake.prototype.turn = function(direction) {

@@ -1,4 +1,8 @@
 
+body {
+  overflow-x: hidden;
+}
+
 .board {
   height: 400px;
   width: 400px;
@@ -29,6 +33,10 @@
   background-color: #f20000;
 }
 
+.power-up {
+  background-color: #dcf700;
+}
+
 .high-score {
   height: 75px;
   width: 150px;
@@ -40,6 +48,15 @@
 
 .score {
   height: 75px;
+  width: 150px;
+  background-color: #eee;
+  font-size: 197%;
+  font-weight: bold;
+  color: black;
+}
+
+.timer {
+  height: 37.5px;
   width: 150px;
   background-color: #eee;
   font-size: 197%;
