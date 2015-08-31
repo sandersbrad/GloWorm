@@ -9,5 +9,7 @@ Red squares are apples.  Eat these to increase your score but watch out!  You'll
 
 Yellow squares are power ups.  Eat one of these to increase your score AND cut your length in half!
 
+The more apples you eat, the faster the game will get.
+
 #Have Fun!
 
