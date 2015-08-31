@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/snake.css">
+  </head>
+  <body>
+    <script src="./js/utils/keymaster.js"></script>
+    <script src="./js/utils/array.js"></script>
+    <script src="./js/utils/jscookie.js"></script>
+    <script src="./js/snake.js"></script>
+    <script src="./js/snake-view.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+      $(function () {
+        var game = new Game.Snake();
+        var $board = $('.board')
+        var $score = $('.current-score')
+        var $highScore = $('.last-high')
+
+        var view = new Game.View(game, $board, $score, $highScore)
+      })
+    </script>
+    <!-- <div class='row snake-header'></div> -->
+    <div class='row game'>
+      <div class='col-md-4'></div>
+      <div class='col-md-4 game'>
+        <figure class="board group"></figure>
+      </div>
+      <div class='col-md-4 scores'>
+        <figure class="timer">
+          <div class="clock">
+          <span class="minutes"></span>:<span class="seconds"></span>:<span class='milliseconds'></span>
+          </div>
+        </figure>
+        <br>
+        <figure class="high-score">
+          High Score
+          <div class="last-high">0</div>
+        </figure>
+        <br>
+        <figure class="score">
+          Score
+          <div class='current-score'></div>
+        </figure>
+        <br>
+        <button class="btn btn-default restart">Restart</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -32,7 +32,8 @@
   Snake.prototype.placeBonus = function () {
     if ((parseInt($('.seconds').html()) % 12 === 0) &&
         this.applesEaten > 0 &&
-        this.applesEaten % 3 === 0){
+        this.applesEaten % 3 === 0 &&
+        (parseInt($('.milliseconds').html()) === 0)){
       this.placePowerUp();
     }
   };
@@ -48,7 +49,7 @@
       this.segments.unshift(newTail);
       i -= 1;
     }
-    if (this.applesEaten % 3 === 0 && this.interval > 40) {
+    if (this.applesEaten % 3 === 0 && this.interval > 40 && !this.changeInterval) {
       this.interval -= 20;
       this.changeInterval = true;
     } else {
