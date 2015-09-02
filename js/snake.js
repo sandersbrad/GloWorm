@@ -9,7 +9,7 @@
     this.vec = [0,1];
     this.head = this.segments[this.segments.length-1];
     this.applesEaten = 0;
-    this.interval = 150;
+    this.interval = 120;
     this.changeInterval = false;
     this.score = 0;
   };
@@ -50,7 +50,7 @@
       i -= 1;
     }
     if (this.applesEaten % 3 === 0 && this.interval > 40 && !this.changeInterval) {
-      this.interval -= 20;
+      this.interval -= 10;
       this.changeInterval = true;
     } else {
       this.changeInterval = false;
@@ -108,6 +108,9 @@
   };
 
   Snake.prototype.placePowerUp = function () {
+    if ($('div').hasClass('power-up')) {
+      return;
+    }
     $('div').removeClass('power-up');
     var x = parseInt(Math.random() * 39);
     var y = parseInt(Math.random() * 39);

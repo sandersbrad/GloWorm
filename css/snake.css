@@ -17,24 +17,25 @@ body {
 .empty {
   float: left;
   position: relative;
-  background-color: #eee;
+  background-color: rgb(0, 0, 0);
   box-sizing: border-box;
-  border-left: 1px solid #fff;
-  border-top: 1px solid #fff;
+  /*border-left: 1px solid #fff;
+  border-top: 1px solid #fff;*/
   height: 10px;
   width: 10px;
 }
 
 .display {
-  background-color: #000;
+  background-color: rgb(242, 255, 0);
 }
 
 .apple {
-  background-color: #f20000;
+  background-color: rgb(231, 0, 0);
+  border-radius: 1px;
 }
 
 .power-up {
-  background-color: #dcf700;
+  background-color: #3bff00;
 }
 
 .high-score {

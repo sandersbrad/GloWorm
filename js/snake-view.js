@@ -11,12 +11,13 @@
     this.$score = $score;
     this.$highScore = $highScore;
     this.boardSize = 40;
-    this.setBoard();
+    // this.setBoard();
     this.bindKeyHandlers();
-    this.render();
+    // this.render();
     $('.restart').click(this.replay.bind(this));
     this.setHighScore();
-    this.setTimer();
+    this.welcomeScreen();
+    // this.setTimer();
   };
 
   Game.View.prototype.setBoard = function () {
@@ -31,7 +32,12 @@
      this.game.placeApple();
   };
 
+  Game.View.prototype.welcomeScreen = function () {
+    this.$board.html('<h1> Welcome to Snake </h1>')
+  }
+
   Game.View.prototype.setTimer = function () {
+    this.timerInt && clearInterval(this.timerInt);
     this.milliseconds = 0;
     this.timerInt = setInterval(this.timer.bind(this), 100);
   };
@@ -70,6 +76,7 @@
   };
 
   Game.View.prototype.replay = function () {
+    this.gameInterval && clearInterval(this.gameInterval);
     this.game = new Game.Snake();
     this.$board.empty();
     this.$score.empty();
