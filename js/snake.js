@@ -90,7 +90,6 @@
 
   Snake.prototype.outOfBounds = function () {
     if (this.head[0] < 0 || this.head[1] < 0 || this.head[0] >= 40 || this.head[1] >= 40) {
-      alert('You Lose');
       this.endGame = true;
     }
   };
@@ -112,7 +111,6 @@
     this.outOfBounds();
     this.segments.slice(0,this.segments.length - 1).forEach(function (segment) {
       if (segment.equals(this.head)) {
-        alert('You Lose');
         this.endGame = true;
       }
     }.bind(this));

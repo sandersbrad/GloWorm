@@ -26,6 +26,11 @@ b.title {
   color: rgb(242, 255, 0);
 }
 
+.over {
+  color: rgb(242, 255, 0);
+  opacity: 0;
+}
+
 .title {
   margin: auto;
 }
@@ -90,7 +95,7 @@ b.title {
   float: left;
 }
 
-.stats.show {
+.show {
   -webkit-transition: opacity 2.0s ease-in;
   -moz-transition: opacity 2.0s ease-in;
   -o-transition: opacity 2.0s ease-in;

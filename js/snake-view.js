@@ -113,8 +113,11 @@
       clearInterval(this.timerInt);
       if (this.game.score > parseInt(this.$highScore.html())) {
         this.$highScore.html(this.game.score);
-        Cookies.set('highscore', this.game.score, { expires: 7 });
+        Cookies.set('highscore', this.game.score, { expires: 25 });
       }
+      this.$board.html('<br><br><br><br><br><h1 class="title" style="text-align: center;"><b class="over"> Game Over </b> </h1>')
+      $('.over').addClass('show');
     }
   };
+
 })();
