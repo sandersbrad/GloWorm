@@ -1,15 +1,16 @@
 #Description
-This is a browser friendly version of the classic mobile game snake.  Written in JavaScript.
+This is a browser friendly version of the classic mobile game snake with a twist!.  Written in JavaScript.
 
 #Instructions
 
-Use the arrow keys to change the direction of the snake.  Do no hit any walls or yourself.  
+Use the arrow keys to change the direction your GloWorm.  Do no hit any walls or yourself.  
 
-Red squares are apples.  Eat these to increase your score but watch out!  You'll grow longer every time you do.
+Red apples increase your score but watch out; you'll grow longer time you eat one.
 
-Yellow squares are power ups.  Eat one of these to increase your score AND cut your length in half!
+Green apples increase your score and cut your length in half.  
+
+Beware the toxic blue apples!  They will decrease your score and double your length!
 
 The more apples you eat, the faster the game will get.
 
 #Have Fun!
-
