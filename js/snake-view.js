@@ -12,11 +12,8 @@
     this.$highScore = $highScore;
     this.boardSize = 40;
     this.bindKeyHandlers();
-    // this.render();
     $('.restart').click(this.replay.bind(this));
     this.setHighScore();
-    // this.welcomeScreen();
-    // this.setTimer();
   };
 
   Game.View.prototype.setBoard = function () {
@@ -37,13 +34,19 @@
     this.timerInt = setInterval(this.timer.bind(this), 100);
   };
 
+  Game.View.prototype.pad = function (num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+  };
+
   Game.View.prototype.timer = function () {
     this.milliseconds += 100;
     var seconds = this.milliseconds/1000;
     var minutes = seconds/60;
 
-    $('.minutes').html(parseInt(minutes));
-    $('.seconds').html(parseInt(seconds%60));
+    $('.minutes').html(this.pad(parseInt(minutes), 2));
+    $('.seconds').html(this.pad(parseInt(seconds%60), 2));
     $('.milliseconds').html(this.milliseconds%1000/100);
   };
 
@@ -79,6 +82,7 @@
     this.bindKeyHandlers();
     this.setTimer();
     this.render();
+    $('.stats').addClass('show');
   };
 
   Game.View.prototype.render = function () {

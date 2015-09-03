@@ -8,12 +8,12 @@ body {
   width: 400px;
   background-color: black;
   color: white;
-  display: inline-block;
-  /*text-align: center;*/
+  display: block;
+  margin: auto;
 }
 
 .snake-header {
-  height: 20px;
+  height: 40px;
 }
 
 .group:after {
@@ -62,7 +62,7 @@ b.title {
 
 .high-score {
   height: 75px;
-  border: 2px solid #000aff;
+  /*border: 2px solid #000aff;*/
   border-radius: 8px;
   width: 150px;
   background-color: black;
@@ -74,7 +74,7 @@ b.title {
 
 .score {
   height: 75px;
-  border: 2px solid rgb(231, 0, 0);
+  /*border: 2px solid rgb(231, 0, 0);*/
   border-radius: 8px;
   width: 150px;
   background-color: black;
@@ -85,22 +85,36 @@ b.title {
 }
 
 .stats {
-  display: inline-block;
+  display: block;
+  opacity: 0;
+  float: left;
+}
+
+.stats.show {
+  -webkit-transition: opacity 2.0s ease-in;
+  -moz-transition: opacity 2.0s ease-in;
+  -o-transition: opacity 2.0s ease-in;
+  opacity: 1;
 }
 
 .timer {
     text-align: center;
     height: 37.5px;
-    border: 1px solid #3bff00;
+    /* border: 2px solid #3bff00; */
     border-radius: 5px;
     width: 150px;
-    background-color: yellow;
+    background-color: #080808;
     font-size: 197%;
     font-weight: bold;
-    color: black;
+    color: #F2FF00;
 }
 
 .btn-default.restart {
-  background-color: rgb(242, 255, 0);
-  border-color: rgb(242, 255, 0);
+  background-color: #3bff00;
+  border-color: #3bff00;
+}
+
+.btn-default.restart:hover {
+  background-color: rgb(231, 0, 0);
+  border-color: rgb(231, 0, 0);
 }

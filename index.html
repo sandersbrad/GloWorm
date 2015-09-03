@@ -33,47 +33,42 @@
     </script>
     <div class='row snake-header'></div>
     <div class='row game'>
-      <div class='col-md-3'></div>
-      <div class='col-md-6 game'>
-        <div class='col-md-3'></div>
-        <div class='col-md-6'>
-          <figure class="board group">
-            <h1 class='title' style='text-align: center;'> Welcome to <b class='title'> GloWorm </b> </h1><br><br>
-            <h4 class='blurb' style='text-align: center;'> You're a GloWorm and you need radioactive apples to survive! But be careful, don't run into yourself or the edges or you'll lose!</h4><br><br>
-            <ul class='instructions'>
-              <li><div class="empty apple" style="top: 5px; right: 5px;"></div> Eat apples to increase your score.</li>
-              <br>
-              <li><div class="empty power-up" style="top: 5px; right: 5px;"></div> Green apples decrease your length</li>
-              <br>
-              <li><div class="empty bad-apple" style="top: 5px; right: 5px;"></div> Beware the radioactive blue apples.  You'll double in length and lose points!</li>
-              <br>
-            </ul>
-            <button class="btn btn-default restart" style='margin: auto; display: block;'>Start Game!</button>
-          </figure>
-        </div>
-        <div class='col-md-3'>
-          <div class="stats">
-            <figure class="timer">
-              <div class="clock">
-              <span class="minutes"></span>:<span class="seconds"></span>:<span class='milliseconds'></span>
-              </div>
-            </figure>
+      <div class='col-md-4'></div>
+      <div class='col-md-4 game'>
+        <figure class="board group">
+          <h1 class='title' style='text-align: center;'> Welcome to <b class='title'> GloWorm </b> </h1><br><br>
+          <h4 class='blurb' style='text-align: center;'> You're a GloWorm and you need radioactive apples to survive! But be careful, don't run into yourself or the edges or you'll lose!</h4><br><br>
+          <ul class='instructions'>
+            <li><div class="empty apple" style="top: 5px; right: 5px;"></div> Eat apples to increase your score.</li>
             <br>
-            <figure class="high-score">
-              High Score
-              <div class="last-high">0</div>
-            </figure>
+            <li><div class="empty power-up" style="top: 5px; right: 5px;"></div> Green apples decrease your length</li>
             <br>
-            <figure class="score">
-              Score
-              <div class='current-score'></div>
-            </figure>
+            <li><div class="empty bad-apple" style="top: 5px; right: 5px;"></div> Beware the radioactive blue apples.  You'll double in length and lose points!</li>
             <br>
-            <button class="btn btn-default restart">Restart</button>
-          </div>
-        </div>
+          </ul>
+          <button class="btn btn-default restart" style='margin: auto; display: block;'>Start Game!</button>
+        </figure>
       </div>
-      <div class='col-md-3'>
+      <div class='col-md-4'>
+        <div class="stats">
+          <figure class="timer">
+            <div class="clock">
+            <span class="minutes">00</span>:<span class="seconds">00</span>:<span class='milliseconds'>0</span>0
+            </div>
+          </figure>
+          <br>
+          <figure class="high-score">
+            High Score
+            <div class="last-high">0</div>
+          </figure>
+          <br>
+          <figure class="score">
+            Score
+            <div class='current-score'></div>
+          </figure>
+          <br>
+          <button class="btn btn-default restart">Restart</button>
+        </div>
       </div>
     </div>
   </body>
