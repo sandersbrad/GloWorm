@@ -9,5 +9,9 @@ This is a browser friendly version of the classic mobile game snake with a twist
 * The more apples you eat, the faster the game will get.
 
 #Implementation
-* 
+* JavaScript and jQuery
+* Keybindings with keymaster.js
+* jsCookie for cookie setting
+* Added #equals onto Array.prototype for array comparison
+
 #Have Fun!
