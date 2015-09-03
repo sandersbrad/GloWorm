@@ -6,12 +6,28 @@ body {
 .board {
   height: 400px;
   width: 400px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  /*text-align: center;*/
+}
+
+.snake-header {
+  height: 20px;
 }
 
 .group:after {
   content: "";
   clear: both;
-  display: block;
+  display: inline-block;
+}
+
+b.title {
+  color: rgb(242, 255, 0);
+}
+
+.title {
+  margin: auto;
 }
 
 .empty {
@@ -31,36 +47,60 @@ body {
 
 .apple {
   background-color: rgb(231, 0, 0);
-  border-radius: 1px;
+  border-radius: 5px;
+}
+
+.bad-apple {
+  background-color: #000aff;
+  border-radius: 5px;
 }
 
 .power-up {
   background-color: #3bff00;
+  border-radius: 5px;
 }
 
 .high-score {
   height: 75px;
+  border: 2px solid #000aff;
+  border-radius: 8px;
   width: 150px;
-  background-color: #eee;
+  background-color: black;
   font-size: 197%;
   font-weight: bold;
-  color: black;
+  color: yellow;
+  text-align: center;
 }
 
 .score {
   height: 75px;
+  border: 2px solid rgb(231, 0, 0);
+  border-radius: 8px;
   width: 150px;
-  background-color: #eee;
+  background-color: black;
   font-size: 197%;
   font-weight: bold;
-  color: black;
+  color: yellow;
+  text-align: center;
+}
+
+.stats {
+  display: inline-block;
 }
 
 .timer {
-  height: 37.5px;
-  width: 150px;
-  background-color: #eee;
-  font-size: 197%;
-  font-weight: bold;
-  color: black;
+    text-align: center;
+    height: 37.5px;
+    border: 1px solid #3bff00;
+    border-radius: 5px;
+    width: 150px;
+    background-color: yellow;
+    font-size: 197%;
+    font-weight: bold;
+    color: black;
+}
+
+.btn-default.restart {
+  background-color: rgb(242, 255, 0);
+  border-color: rgb(242, 255, 0);
 }

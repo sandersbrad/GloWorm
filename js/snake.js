@@ -30,12 +30,18 @@
   };
 
   Snake.prototype.placeBonus = function () {
-    if ((parseInt($('.seconds').html()) % 12 === 0) &&
+    if ((parseInt($('.seconds').html()) % 10 === 0) &&
         this.applesEaten > 0 &&
-        this.applesEaten % 3 === 0 &&
+        this.applesEaten % 2 === 0 &&
         (parseInt($('.milliseconds').html()) === 0)){
       this.placePowerUp();
     }
+
+    if ((parseInt($('.seconds').html()) % 25 === 0) &&
+        this.applesEaten > 0 &&
+       (parseInt($('.milliseconds').html()) === 0)) {
+        this.placeBadApples();
+      }
   };
 
   Snake.prototype.eatApple = function () {
@@ -74,12 +80,31 @@
     if (this.head.equals(this.powerUp)) {
       this.eatPowerUp();
     }
+
+    this.badApples && this.badApples.forEach(function (badApple) {
+      if (this.head.equals(badApple)) {
+        this.eatBadApple();
+      }
+    }.bind(this));
   };
 
   Snake.prototype.outOfBounds = function () {
     if (this.head[0] < 0 || this.head[1] < 0 || this.head[0] >= 40 || this.head[1] >= 40) {
       alert('You Lose');
       this.endGame = true;
+    }
+  };
+
+  Snake.prototype.eatBadApple = function () {
+    $('div').removeClass('bad-apple')
+    this.score -= 20;
+    this.badApples = [];
+    var i = this.segments.length;
+    var vec = this.vec;
+    while (i > 0) {
+      var newTail = [this.head[0] - vec[0], this.head[1] - vec[1]];
+      this.segments.unshift(newTail);
+      i -= 1;
     }
   };
 
@@ -92,6 +117,34 @@
       }
     }.bind(this));
   };
+
+  Snake.prototype.placeBadApples = function () {
+    if ($('div').hasClass('bad-apple')) {
+      return;
+    }
+    this.badApples = [];
+
+    var i = 5
+    while (i > 0) {
+      var x = parseInt(Math.random() * 39);
+      var y = parseInt(Math.random() * 39);
+      var pos = [x, y];
+
+      if ($("div[pos = '" + pos + "']").attr('class') !== 'empty') {
+        return;
+      }
+
+      $("div[pos = '" + pos + "']").addClass('bad-apple');
+      this.badApples.push(pos);
+      console.log(this.badApples);
+      i -= 1;
+    }
+
+    setTimeout(function () {
+      $('div').removeClass('bad-apple');
+      this.badApples = [];
+    }, 7000);
+  }
 
   Snake.prototype.placeApple = function () {
     $('div').removeClass('apple');
