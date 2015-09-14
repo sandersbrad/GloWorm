@@ -1,3 +1,5 @@
+![GloWorm](/images/snake.png)
+
 #Description
 This is a browser friendly version of the classic mobile game snake with a twist!.  Written in JavaScript.
 
@@ -10,7 +12,7 @@ This is a browser friendly version of the classic mobile game snake with a twist
 
 #Implementation
 * Extended the Array.prototype with `#equals` for array comparison
-* Set cookie with jsCookie to persist user's highscore 
+* Set cookie with jsCookie to persist user's highscore
 * Keybindings with keymaster.js
 
 
