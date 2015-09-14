@@ -41,7 +41,7 @@
         this.applesEaten > 0 &&
        (parseInt($('.milliseconds').html()) === 0)) {
         this.placeBadApples();
-      }
+    }
   };
 
   Snake.prototype.eatApple = function () {
